@@ -1,0 +1,1 @@
+export const API_ENDPOINT = "http://images.stockal.com/api/products.json"

@@ -1,0 +1,49 @@
+{
+  "name": "MinimalReactWebpackBabelBoilerplate",
+  "version": "1.0.0",
+  "description": "Basic Setup React Webpack Babel Minimal Boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/divo93/MinimalReactWebpackBabelBoilerplate.git"
+  },
+  "keywords": [],
+  "author": "Divo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/divo93/MinimalReactWebpackBabelBoilerplate/issues"
+  },
+  "homepage": "https://github.com/divo93/MinimalReactWebpackBabelBoilerplate#readme",
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "react-hot-loader": "^4.8.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "extract-loader": "^3.1.0",
+    "handlebars-loader": "^1.7.1",
+    "lodash": "^4.17.11",
+    "react": "^16.8.4",
+    "react-bootstrap": "^1.0.0-beta.6",
+    "react-dom": "^16.8.4",
+    "react-router-dom": "^4.3.1"
+  }
+}
