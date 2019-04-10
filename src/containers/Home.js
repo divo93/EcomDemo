@@ -18,10 +18,9 @@ export default class Home extends Component {
   }
   componentDidMount = async () => {
       let res = await getProductList()
-      const data = JSON.parse(res.data)
-      this.setState({product_list:data.products})
-      // file.data.products.map((product) => product.open = false)
-      // this.setState({product_list:file.data.products})
+      if (res) {
+        this.setState({product_list:res.data.data.products})
+      }
   }
 
   toggleProductBuy = (index) => {

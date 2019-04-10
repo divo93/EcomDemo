@@ -17,7 +17,6 @@ export class Headers extends React.PureComponent{
             height="30"
             className="d-inline-block align-top"
           />
-          {'Product Page'}
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
