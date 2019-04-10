@@ -9,6 +9,7 @@ export const Routes = () => {
   return (
     <div>
       <Headers />
+      <br />
     <main>
       <Switch>
         <Route path="/home" component={Home} />

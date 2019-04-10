@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.3.1",
     "extract-loader": "^3.1.0",
     "handlebars-loader": "^1.7.1",
