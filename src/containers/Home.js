@@ -13,14 +13,16 @@ export default class Home extends Component {
       product_list: [],
       cart:[],
       selected:{},
+      available_qty:0
     }
   }
   componentDidMount = async () => {
       let res = await getProductList()
+      const data = JSON.parse(res.data)
+      this.setState({product_list:data.products})
       // file.data.products.map((product) => product.open = false)
       // this.setState({product_list:file.data.products})
   }
-
 
   toggleProductBuy = (index) => {
     let product_list = this.state.product_list
@@ -29,16 +31,24 @@ export default class Home extends Component {
   }
  
   addToCart = (index) => {
-    let {selected, cart} = this.state
-    if (selected && selected.hasOwnProperty('size') && selected.size !== ''){
-      this.toggleProductBuy(index)
-      cart && cart.length < 5 ?
-        this.setState({cart:[...cart, selected]}) :
-      alert("Only Add 5 Products at a time.")
-    }
+    let {selected, cart, available_qty} = this.state
+    if (selected && selected.hasOwnProperty('size') && selected.hasOwnProperty('qty')) {
+      if (selected.size == ''){
+        alert("Select Size Before Adding To Cart")
+      }
+      else if (selected.qty > available_qty){
+        alert (`Only ${available_qty} item(S) can be selected.`)
+      } 
+      else {
+        this.toggleProductBuy(index)
+          cart && cart.length < 5 ?
+            this.setState({cart:[...cart, selected]}) :
+          alert("Only Add 5 Products at a time.")
+        } 
+      }
     else {
-      alert("Select Size Before Adding To Cart")
-    }
+      alert("Select Size and Quantity First.")
+    }  
   }
 
   removeItemFromCart = (index) => {
@@ -49,13 +59,19 @@ export default class Home extends Component {
 
   onChange = (e, index) => {
     let product_list = this.state.product_list
+    const name = event.target.name
+    if (name == 'size'){
+      var data = product_list[index]['inventoryInfo'].filter(info => info.label == e.target.value)
+      this.setState({available_qty: data[0]['inventory']})
+    }
+    console.log("data ", data)
     this.setState({
       selected:{
         ...this.state.selected,
         [e.target.name]:e.target.value,
         'image': product_list[index]['searchImage'],
         'price':product_list[index]['price'],
-        'name':product_list[index]['productName']
+        'name':product_list[index]['productName'],
       }
     })
   }
